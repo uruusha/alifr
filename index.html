@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alifr</title>
+    <style>
+        /* CSS remains unchanged */
+        body {
+            background-color: #ADD8E6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .chick-img {
+            width: 100px;
+            height: auto;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #FF69B4;
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        .hidden {
+            display: none;
+            color: #FF6347;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: bounce 0.5s;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fadeOut {
+            animation: fadeOut 0.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WHAT DO YOU THINK? AM I DUMB?</h1>
+        <img id="chick" src="chu.jpg" height="100" alt="Happy Chick Girl">
+        <div class="buttons">
+            <button id="noBtn">No</button>
+            <button id="yesBtn">Yes</button>
+        </div>
+        <div id="response" class="hidden">
+            <img src="chlu.jpg" height="100" alt="Angry Chick Girl">
+            <p>HAWWW! SO YOU THINK I'M DUMB! AM NOT TALKING TO YOU 😤</p>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const response = document.getElementById('response');
+        const chick = document.getElementById('chick');
+
+        noBtn.addEventListener('click', () => {
+            noBtn.classList.add('fadeOut');
+            setTimeout(() => {
+                noBtn.style.display = 'none';
+            }, 500);
+        });
+
+        yesBtn.addEventListener('click', () => {
+            document.querySelector('.container h1').style.display = 'none';
+            document.querySelector('.buttons').style.display = 'none';
+            chick.style.display = 'none';
+            response.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
